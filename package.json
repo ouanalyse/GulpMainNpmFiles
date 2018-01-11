@@ -1,6 +1,6 @@
 {
   "name": "ouanalyse-gulp-main-npm-files",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Finds main scripts of node modules",
   "main": "index.js",
   "directories": {
