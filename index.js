@@ -4,7 +4,12 @@ var callerId = require('caller-id');
 
 module.exports = function(options) {
   function getMainFile(modulePath) {
-    var json = JSON.parse(fs.readFileSync(modulePath + '/package.json'));
+    var json = JSON.parse(fs.readFileSync(modulePath + '/package.json'));    
+    if (options.override && options.override[json.name]) {
+      console.log('im in')
+      json = Object.assign(json, options.override[json.name]);
+    }
+    console.log(json.main);
     return modulePath + "/" + (json.main || "index.js");
   };
 

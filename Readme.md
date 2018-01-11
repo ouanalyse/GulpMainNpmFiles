@@ -28,6 +28,25 @@ gulp.task('TASKNAME', function() {
 
 ## Options
 The module accepts the following options:
+
+- **override**: object consisting of properties corresponding to npm module names whic package.json file we want to modify. Accepts a partial package.json which will merge with original package.json file
+
+```Javascript
+var gmnf = require('gulp-main-npm-files');
+
+gulp.task('vendor-js', function() {
+    gulp.src(gmnf({
+        override: {
+            'bootstrap': {
+                'main' : 'dist/js/bootstrap.js'
+            }
+        }
+    }), {base:'./'})
+        .pipe(flatten())
+        .pipe(gulp.dest('./web/js/libs-gen'));
+})
+```
+
 - **nodeModulesPath**: path to your node_modules. By default, it is ./node_modules that means this directory is at your project's root.
 
 ```Javascript
