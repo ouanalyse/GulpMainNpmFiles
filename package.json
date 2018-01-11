@@ -1,28 +1,24 @@
 {
   "name": "ouanalyse-gulp-main-npm-files",
-  "version": "1.0.5",
-  "description": "Get main files from your installed npm packages.",
+  "version": "1.0.6",
+  "description": "Finds main scripts of node modules",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+  "directories": {
+    "test": "test"
   },
-  "author": "Romain Diegoni",
-  "license": "MIT",
-  "dependencies": {
-    "caller-id": "0.1.0",
-    "fs": "0.0.1-security"
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/drioemgaoin/GulpMainNpmFiles.git"
+    "url": "git+https://github.com/ouanalyse/GulpMainNpmFiles.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/drioemgaoin/GulpMainNpmFiles/issues"
+    "url": "https://github.com/ouanalyse/GulpMainNpmFiles/issues"
   },
-  "devDependencies": {
-    "mocha": "3.2.0",
-    "path": "0.12.7",
-    "should": "11.1.1",
-    "winston": "git://github.com/flatiron/winston#master"
-  }
+  "homepage": "https://github.com/ouanalyse/GulpMainNpmFiles#readme"
 }
