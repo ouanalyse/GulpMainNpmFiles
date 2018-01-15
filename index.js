@@ -8,7 +8,13 @@ module.exports = function(options) {
     if (options.override && options.override[json.name]) {
       json = Object.assign(json, options.override[json.name]);
     }
-    return modulePath + "/" + (json.main || "index.js");
+    var files = [].concat(json.main, json.additional_files ? json.additional_files : [])
+    if (!files.length) {
+    	files = 'index.js';
+    }
+    return files.map(function(file) {
+    	return modulePath + "/" + file;
+    });
   };
 
   options = options || {};
@@ -33,12 +39,12 @@ module.exports = function(options) {
   keys = [];
 
   for (var key in packages.dependencies) {
-    keys.push(getMainFile(options.nodeModulesPath + "/" + key));
+    keys = keys.concat(getMainFile(options.nodeModulesPath + "/" + key));
   }
 
   if (options.devDependencies) {
     for (var key in packages.devDependencies) {
-      keys.push(getMainFile(options.nodeModulesPath + "/" + key));
+    	keys = keys.concat(getMainFile(options.nodeModulesPath + "/" + key));
     }
   }
 
